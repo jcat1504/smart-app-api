@@ -19,6 +19,7 @@ const db = knex({
     database : 'smart-brain'
   }
 });
+//remember to always specify port for pg
 
 const app = express();
 
