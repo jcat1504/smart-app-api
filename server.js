@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
+
 const knex = require('knex');
 
 const register = require('./controllers/register');
@@ -13,13 +14,21 @@ const db = knex({
   client: 'pg',
   connection: {
     connectionString : process.env.DATABASE_URL,
-    ssl: true;
+    ssl: true,
   }
 });
 
 const app = express();
 
-app.use(cors())
+
+app.use(function(req, res, next) {
+  req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 app.use(bodyParser.json());
 
 app.get('/', (req, res)=> { res.send('it is working!') })

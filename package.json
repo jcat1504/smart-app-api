@@ -1,7 +1,7 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "main": "script.js",
+  "main": " node server.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -12,7 +12,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "clarifai": "^2.9.0",
-    "cors": "^2.8.4",
+    "cors": "^2.8.5",
     "express": "^4.16.2",
     "knex": "^0.14.6",
     "pg": "^7.4.0"
